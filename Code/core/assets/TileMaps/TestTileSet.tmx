@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="DirtTileSet" tilewidth="64" tileheight="64">
+  <image source="../Graphics/Tilesets/DirtTileSet.png" width="256" height="256"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value="false"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="17" name="Gridborder" tilewidth="64" tileheight="64">
+  <image source="../Graphics/Tilesets/Gridborder.png" width="64" height="64"/>
+ </tileset>
+ <layer name="Main" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2kt2wyAQRFHH+Sf73288yMDxwbFATddrVIMaWoa+CIHQ+XQ6nR3HcRzHcRzHcRznNx+XvDihed/h8XrJkxOaN3ugYg9W7MGKPVhRenwD+k+LPVjxfNU/hrbEHjl1n/2/9tDU3R73HdTtOKpH7z2gsFrdgzAH2aOWwcoe1e6H6h5V61zVY6Tes++HzPUwzSPaL6KGrd/O8qnosfWdxW2dZo7vqGtW8GjVeG//qSZEjy1zAdHjuu3VPSL3zVuuM3udNnr92R4RtZtRy4x180jfsu+PiHVJVC2z9jI9/6PwoNQyc2+5dfwd2YNokukR2feofUT2+5dVPaKuR3sfVtmD5FrRg9Z3YrvswWqbPf62TX2WpXhfcu/9tdJBPRZoHsqo7wm1B9Wkx26Wob+nHm/LiueDBJOImka5qD2iTDK/OZjZF4JHxPj675uD7LGxgkeUy97/VloQPTJqc++7E7UF2WNmCM8Ze7Q91G05ukdrrlK3qaLHzP0ByaSCR8Y5IMWE7pH9vYE92nXped629uajscd+h1ltUBhRPEjvNo52Ptgai7S6qeYv5XlUxBp2Zm0Uc1bl80HC8/eRpT1Y6XWp4lFhbx1hQvd41JcKHj0heozsQ9R1rO7RquPoM5Cyt17Fo8La9ygeUXW0h34/WMGkt01ZHvfe0a1uQvTIPpsjmRA9FLWjmFTzoJqo1nyE/SBlLKstlB7XbSZ6qK6hnq9IZ9dqC4IHyYSwNyV4XPdBaaK+N0get33Kdol4fke0megRVaPMOka19cgehOdFJQ+6xYx5tbpH7/eEe8+8Zq8Fq3tsrV2Vs8cVPSJNs//XHqzYgxV7sGIPVuzBij1Y2ePxecmzE5qvHR6O4ziO4zjOWH4ADw1Ebg==
+  </data>
+ </layer>
+ <layer name="Grid" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKGr8P3LDpZDwVVTVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVX/AY83mC8=
+  </data>
+ </layer>
+ <objectgroup name="Spawns">
+  <properties>
+   <property name="SpawnType" value="Player"/>
+  </properties>
+  <object name="Player" type="Spawn" x="1885" y="1330">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Collisions">
+  <object x="0" y="0" width="6355.15" height="609.091"/>
+  <object x="5857.58" y="605.212" width="512" height="5760"/>
+  <object x="31.8485" y="5990" width="5824" height="384"/>
+  <object x="0" y="608.242" width="416.152" height="5380.88"/>
+  <object x="1406.67" y="961.333" width="65.3333" height="125.333"/>
+  <object x="1728" y="1664" width="64" height="65.3333"/>
+  <object x="2248" y="1602.67" width="60" height="60">
+   <ellipse/>
+  </object>
+  <object x="1993.33" y="1944">
+   <polygon points="0,0 81.3333,-93.3333 317.333,-88 320,-29.3333 2.66667,-1.33333"/>
+  </object>
+ </objectgroup>
+</map>

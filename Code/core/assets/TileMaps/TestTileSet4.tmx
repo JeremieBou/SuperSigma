@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="5" height="5" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="DirtTileSet" tilewidth="64" tileheight="64">
+  <image source="../Graphics/Tilesets/DirtTileSet.png" width="256" height="256"/>
+  <tile id="0">
+   <properties>
+    <property name="blocked" value="false"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="17" name="Gridborder" tilewidth="64" tileheight="64">
+  <image source="../Graphics/Tilesets/Gridborder.png" width="64" height="64"/>
+ </tileset>
+ <layer name="Main" width="5" height="5">
+  <data encoding="base64" compression="zlib">
+   eJxjYmBgYMKCGZEwqWLoGAAIuAAq
+  </data>
+ </layer>
+ <layer name="Grid" width="5" height="5">
+  <data encoding="base64" compression="zlib">
+   eJwTZGBgEKQxBgBWuAGq
+  </data>
+ </layer>
+ <objectgroup name="Spawns">
+  <properties>
+   <property name="SpawnType" value="Player"/>
+  </properties>
+  <object name="Player" type="Spawn" x="155" y="156">
+   <ellipse/>
+  </object>
+ </objectgroup>
+</map>
