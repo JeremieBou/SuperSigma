@@ -1,7 +1,6 @@
 package com.jercodes.SuperSigmaProject;
 
 import com.artemis.Entity;
-import com.artemis.EntityEdit;
 import com.artemis.World;
 import com.artemis.utils.EntityBuilder;
 import com.badlogic.gdx.graphics.Color;
@@ -92,11 +91,12 @@ public class EntityFactory{
 		return entity;
 	}
 
+		//TODO put entity builder here
 	public Entity createBlock(Vector2 pos){
 		PolygonShape shape = new PolygonShape();
 		shape.setAsBox(16, 16);
 		Entity entity = createEnviromentElement(pos, new Vector2(32, 32), shape);		
-		EntityEdit ee = entity.edit()
+		entity.edit()
 		.add(new DebugRenderComponent(Color.RED))
 		.add(new RenderableComponent())
 		.add(new SpriteComponent(Assets.testBlock));

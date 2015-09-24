@@ -68,4 +68,10 @@ public class RenderSystem extends EntitySystem{
 			this.world.getMapper(TileMapComponent.class).get(entity).getRenderer().render(layers);
 		}
 	}
+
+	@Override
+	protected void processSystem() {
+		// TODO Auto-generated method stub
+		
+	}
 }

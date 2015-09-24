@@ -18,7 +18,7 @@ public class TileMapComponent extends Component{
 		this.map = map;
 		mapRenderer = new OrthogonalTiledMapRenderer(this.map);
 		
-		dim = new Vector2(64, 64);
+		setDim(new Vector2(64, 64));
 		
 		EllipseMapObject cOb = (EllipseMapObject) map.getLayers().get("Spawns").getObjects().get("Player");
 		Ellipse c = cOb.getEllipse();
@@ -41,5 +41,13 @@ public class TileMapComponent extends Component{
 
 	public void setPlayerSpawn(Vector2 playerSpawn) {
 		this.playerSpawn = playerSpawn;
+	}
+
+	public Vector2 getDim() {
+		return dim;
+	}
+
+	public void setDim(Vector2 dim) {
+		this.dim = dim;
 	}
 }

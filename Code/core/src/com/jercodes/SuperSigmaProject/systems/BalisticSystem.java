@@ -1,7 +1,6 @@
 package com.jercodes.SuperSigmaProject.systems;
 
 import com.artemis.Aspect;
-import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.artemis.systems.EntityProcessingSystem;
 import com.badlogic.gdx.math.Vector2;
@@ -9,6 +8,7 @@ import com.badlogic.gdx.utils.Timer;
 import com.jercodes.SuperSigmaProject.EntityFactory;
 import com.jercodes.SuperSigmaProject.components.tools.BalisticComponent;
 import com.jercodes.SuperSigmaProject.components.tools.ProjectileComponent;
+
 public class BalisticSystem extends EntityProcessingSystem {
 	private int totalShots = 0;
 	private Timer rateOfFireTimer;

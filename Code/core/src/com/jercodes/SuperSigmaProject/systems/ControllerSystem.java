@@ -1,6 +1,5 @@
 package com.jercodes.SuperSigmaProject.systems;
 
-import com.artemis.World;
 import com.artemis.systems.VoidEntitySystem;
 import com.badlogic.gdx.Gdx;
 import com.jercodes.api.Listener;

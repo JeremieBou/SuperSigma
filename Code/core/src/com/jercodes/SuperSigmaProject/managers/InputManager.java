@@ -3,7 +3,6 @@ package com.jercodes.SuperSigmaProject.managers;
 import com.artemis.Entity;
 import com.artemis.Manager;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.utils.IntMap;
 import com.jercodes.SuperSigmaProject.components.InputControllableComponent;

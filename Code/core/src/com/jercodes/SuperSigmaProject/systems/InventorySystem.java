@@ -1,7 +1,6 @@
 package com.jercodes.SuperSigmaProject.systems;
 
 import com.artemis.Aspect;
-import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.artemis.systems.EntityProcessingSystem;
 import com.jercodes.SuperSigmaProject.components.life.InventoryComponent;
