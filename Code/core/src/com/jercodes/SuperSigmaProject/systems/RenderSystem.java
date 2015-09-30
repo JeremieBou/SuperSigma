@@ -18,18 +18,17 @@ import com.jercodes.SuperSigmaProject.components.world.TileMapComponent;
 public class RenderSystem extends EntitySystem{
 
 	private SpriteBatch batch;
-	private final World world;
 	private com.badlogic.gdx.physics.box2d.World box2dWorld;
 
 	private Box2DDebugRenderer debugRenderer;
 	private Matrix4 debugMatrix;
 
-	public RenderSystem(SpriteBatch batch, World world, com.badlogic.gdx.physics.box2d.World box2dWorld){
-		super(Aspect.getAspectForAll(RenderableComponent.class));
+	public RenderSystem(SpriteBatch batch, com.badlogic.gdx.physics.box2d.World box2dWorld){
+		super(Aspect.all(RenderableComponent.class));
 
 		this.batch = batch;
 		
-		this.world = world;
+		//this.world = world;
 
 		debugRenderer = new Box2DDebugRenderer();
 		this.box2dWorld = box2dWorld;
@@ -37,12 +36,12 @@ public class RenderSystem extends EntitySystem{
 	
 	public void processEntities(IntBag entities){
 		
-		int[] array = entities.getData();
-		
-		Entity e = flyweight;
+		//int[] array = entities.getData();
 		
 		for (int i = 0, s = entities.size(); s > i; i++) {
-			e.id = array[i];
+			Entity e = world.getEntity(entities.get(i));
+			
+			//e.id = array[i];
 			process(e);
 		}
 

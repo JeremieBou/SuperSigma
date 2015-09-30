@@ -8,7 +8,7 @@ import com.jercodes.SuperSigmaProject.components.TransformComponent;
 
 public class TransformSystem extends EntityProcessingSystem {
 	public TransformSystem() {
-		super(Aspect.getAspectForAll(TransformComponent.class));
+		super(Aspect.all(TransformComponent.class));
 	}
 
 	protected void process(Entity e) {

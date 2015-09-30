@@ -16,9 +16,9 @@ import com.jercodes.SuperSigmaProject.components.tools.ToolComponent;
  */
 public class ToolSystem extends EntityProcessingSystem{
 	
-	public ToolSystem(World world) {
-		super(Aspect.getAspectForAll(ToolComponent.class));	
-		this.world = world;
+	public ToolSystem() {
+		super(Aspect.all(ToolComponent.class));	
+		//this.world = world;
 		
 	}
 

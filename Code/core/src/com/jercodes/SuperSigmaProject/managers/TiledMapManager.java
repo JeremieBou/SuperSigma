@@ -20,7 +20,7 @@ public class TiledMapManager extends Manager {
 	}
 	
 	public void added(Entity e){
-		super.added(e);
+		super.added(e.id);
 		if(this.world.getMapper(TileMapComponent.class).has(e)){
 			TileMapComponent mapComp = this.world.getMapper(TileMapComponent.class).get(e);
 			TiledMap map = mapComp.getMap();
@@ -36,6 +36,6 @@ public class TiledMapManager extends Manager {
 	}
 	
 	public void deleted(Entity e){
-		super.deleted(e);
+		super.deleted(e.id);
 	}
 }

@@ -53,7 +53,7 @@ public class InputManager extends Manager implements InputProcessor{
 	}
 	
 	public void added(Entity e){
-		super.added(e);
+		super.added(e.id);
 		if(this.world.getMapper(InputControllableComponent.class).has(e)){
 			InputControllableComponent input = this.world.getMapper(InputControllableComponent.class).get(e);
 			
@@ -82,7 +82,7 @@ public class InputManager extends Manager implements InputProcessor{
 	}
 	
 	public void deleted(Entity e){
-		super.deleted(e);
+		super.deleted(e.id);
 		if(this.world.getMapper(InputControllableComponent.class).has(e)){
 			InputControllableComponent input = this.world.getMapper(InputControllableComponent.class).get(e);
 			

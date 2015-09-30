@@ -7,7 +7,7 @@ import com.jercodes.SuperSigmaProject.Assets;
 public class CursorSystem extends VoidEntitySystem {
 	
 	public CursorSystem(){
-		Gdx.input.setCursorImage(Assets.cursor, 16, 16);
+		Gdx.graphics.setCursor(Gdx.graphics.newCursor(Assets.cursor, 16, 16));
 	}
 	
 	protected void processSystem() {

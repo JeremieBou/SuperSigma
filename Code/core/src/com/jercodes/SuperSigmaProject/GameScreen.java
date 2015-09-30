@@ -3,6 +3,7 @@ package com.jercodes.SuperSigmaProject;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.artemis.World;
+import com.artemis.WorldConfiguration;
 import com.artemis.managers.GroupManager;
 import com.artemis.managers.TagManager;
 import com.badlogic.gdx.Gdx;
@@ -36,37 +37,42 @@ public class GameScreen implements Screen {
 	private ComponentMapper<TileMapComponent> tm;
 
 	public GameScreen(SuperSigmaProject game){
-		world = new World();
-		entityFactory = new EntityFactory(world);
-		
-		tm = world.getMapper(TileMapComponent.class);
+		entityFactory = new EntityFactory();
 		
 		Box2DManager bm = new Box2DManager(entityFactory);
 		ControllerSystem cm = new ControllerSystem();
 		PhysicsSystem ps = new PhysicsSystem(bm.getBox2DWorld());
 		
 		
-		world.setManager(new TagManager());
-		world.setManager(new GroupManager());
-		world.setManager(new InputManager(cm));
-		world.setManager(new TiledMapManager(entityFactory));
-		world.setManager(bm);
-
-		world.setSystem(new CameraSystem(game.batcher));
-		world.setSystem(new RenderSystem(game.batcher, world, ps.getBox2DWorld()));
-
-		world.setSystem(cm);		
 		
-		world.setSystem(ps);
-		world.setSystem(new TransformSystem());
-		
-		world.setSystem(new BalisticSystem(entityFactory));
-		world.setSystem(new ToolSystem(world));
-		world.setSystem(new InventorySystem(world.getSystem(ControllerSystem.class)));
+		WorldConfiguration config = new WorldConfiguration()
+		.setManager(new TagManager())
+		.setManager(new GroupManager())
+		.setManager(new InputManager(cm))
+		.setManager(new TiledMapManager(entityFactory))
+		.setManager(bm)
 
-		world.setSystem(new CursorSystem());
+		.setSystem(new CameraSystem(game.batcher))
+		.setSystem(new RenderSystem(game.batcher, ps.getBox2DWorld()))
+
+		.setSystem(cm)	
 		
-		world.initialize();
+		.setSystem(ps)
+		.setSystem(new TransformSystem())
+		
+		.setSystem(new BalisticSystem(entityFactory))
+		.setSystem(new ToolSystem())
+		.setSystem(new InventorySystem(cm))
+
+		.setSystem(new CursorSystem());
+		
+		world = new World(config);
+		
+		tm = world.getMapper(TileMapComponent.class);
+		
+		entityFactory.initialize(world);
+		
+		
 		
 
 		Entity tileMap = entityFactory.createTiledMap(Assets.map1);

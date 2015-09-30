@@ -14,7 +14,7 @@ public class PhysicsSystem extends EntitySystem {
 	private World box2DWorld;
 	
 	public PhysicsSystem(World box2DWorld) {
-		super(Aspect.getAspectForAll(PhysicsComponent.class));
+		super(Aspect.all(PhysicsComponent.class));
 		this.box2DWorld = box2DWorld;
 	}
 	
@@ -71,6 +71,12 @@ public class PhysicsSystem extends EntitySystem {
 
 	public World getBox2DWorld() {
 		return box2DWorld;
+	}
+
+	@Override
+	protected void processSystem() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

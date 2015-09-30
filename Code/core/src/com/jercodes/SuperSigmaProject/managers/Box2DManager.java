@@ -34,7 +34,7 @@ public class Box2DManager extends Manager{
 	}
 	
 	public void added(Entity e){
-		super.added(e);
+		super.added(e.id);
 		
 		if(this.world.getMapper(PhysicsComponent.class).has(e) && this.world.getMapper(TransformComponent.class).has(e)){
 			PhysicsComponent p = this.world.getMapper(PhysicsComponent.class).get(e);
@@ -52,7 +52,12 @@ public class Box2DManager extends Manager{
 			bodyDef.position.set((t.getPos().x)*PhysicsComponent.pixel2Phys, (t.getPos().y)*PhysicsComponent.pixel2Phys);
 			
 			p.setBody(box2DWorld.createBody(bodyDef));
-					
+			if(p.getBody() != null){
+				System.out.println("yay");	
+			}
+			else{
+				System.out.println("awwww");
+			}
 			p.getFixDef().shape = p.getShape();
 			p.getFixDef().density = p.getDensity();
 			p.getFixDef().filter.categoryBits = p.getCategoryBits();

@@ -35,10 +35,13 @@ import com.jercodes.SuperSigmaProject.components.world.TileMapComponent;
 public class EntityFactory{
 	private World world;
 	
-	public EntityFactory(World world){
-		this.world = world;
+	public EntityFactory(){
 	}
 
+	public void initialize(World world){
+		this.world = world;
+	}
+	
 	public Entity createGlobalController(){
 		Entity entity = new EntityBuilder(world)
 		.with(new ControllableComponent(),
