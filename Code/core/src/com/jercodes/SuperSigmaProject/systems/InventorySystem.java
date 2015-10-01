@@ -13,8 +13,9 @@ public class InventorySystem extends EntityProcessingSystem {
 	
 	private Signal<ActionPacket> controllerSystemSignal;
 	
+	@SuppressWarnings("unchecked")
 	public InventorySystem(Listener<ActionPacket> controllerListener) {
-		super(Aspect.getAspectForAll(InventoryComponent.class));
+		super(Aspect.all(InventoryComponent.class));
 		
 		controllerSystemSignal = new Signal<ActionPacket>();
 		controllerSystemSignal.add(controllerListener);

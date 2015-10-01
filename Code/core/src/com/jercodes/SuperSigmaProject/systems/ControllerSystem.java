@@ -1,13 +1,14 @@
 package com.jercodes.SuperSigmaProject.systems;
 
-import com.artemis.systems.VoidEntitySystem;
+import com.artemis.BaseSystem;
 import com.badlogic.gdx.Gdx;
 import com.jercodes.api.Listener;
 import com.jercodes.api.Signal;
 
-public class ControllerSystem extends VoidEntitySystem implements Listener<ActionPacket>{
-		
+public class ControllerSystem extends BaseSystem implements Listener<ActionPacket>{
+	//TODO does this need to be a system?
 	public ControllerSystem(){
+		super();
 		setPassive(true);
 	}
 	

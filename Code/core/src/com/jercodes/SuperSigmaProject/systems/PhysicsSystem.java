@@ -10,9 +10,10 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.jercodes.SuperSigmaProject.components.PhysicsComponent;
 
 public class PhysicsSystem extends EntitySystem {
-
+	//Combine physics system and box2D system
 	private World box2DWorld;
 	
+	@SuppressWarnings("unchecked")
 	public PhysicsSystem(World box2DWorld) {
 		super(Aspect.all(PhysicsComponent.class));
 		this.box2DWorld = box2DWorld;

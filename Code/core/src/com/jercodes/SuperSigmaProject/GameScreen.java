@@ -21,8 +21,10 @@ import com.jercodes.SuperSigmaProject.systems.CameraSystem;
 import com.jercodes.SuperSigmaProject.systems.ControllerSystem;
 import com.jercodes.SuperSigmaProject.systems.CursorSystem;
 import com.jercodes.SuperSigmaProject.systems.InventorySystem;
+import com.jercodes.SuperSigmaProject.systems.MagazineSystem;
 import com.jercodes.SuperSigmaProject.systems.PhysicsSystem;
 import com.jercodes.SuperSigmaProject.systems.RenderSystem;
+import com.jercodes.SuperSigmaProject.systems.TileMapRenderSystem;
 import com.jercodes.SuperSigmaProject.systems.ToolSystem;
 import com.jercodes.SuperSigmaProject.systems.TransformSystem;
 
@@ -48,12 +50,14 @@ public class GameScreen implements Screen {
 		WorldConfiguration config = new WorldConfiguration()
 		.setManager(new TagManager())
 		.setManager(new GroupManager())
-		.setManager(new InputManager(cm))
-		.setManager(new TiledMapManager(entityFactory))
-		.setManager(bm)
+		.setSystem(new InputManager(cm))
+		.setSystem(new TiledMapManager(entityFactory))
+		.setSystem(bm)
 
 		.setSystem(new CameraSystem(game.batcher))
-		.setSystem(new RenderSystem(game.batcher, ps.getBox2DWorld()))
+
+		.setSystem(new TileMapRenderSystem())
+		.setSystem(new RenderSystem(game.batcher))
 
 		.setSystem(cm)	
 		
@@ -62,6 +66,7 @@ public class GameScreen implements Screen {
 		
 		.setSystem(new BalisticSystem(entityFactory))
 		.setSystem(new ToolSystem())
+		.setSystem(new MagazineSystem())
 		.setSystem(new InventorySystem(cm))
 
 		.setSystem(new CursorSystem());

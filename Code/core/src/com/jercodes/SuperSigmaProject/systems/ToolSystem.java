@@ -2,7 +2,6 @@ package com.jercodes.SuperSigmaProject.systems;
 
 import com.artemis.Aspect;
 import com.artemis.Entity;
-import com.artemis.World;
 import com.artemis.systems.EntityProcessingSystem;
 import com.jercodes.SuperSigmaProject.components.TransformComponent;
 import com.jercodes.SuperSigmaProject.components.life.InventoryComponent;
@@ -16,19 +15,15 @@ import com.jercodes.SuperSigmaProject.components.tools.ToolComponent;
  */
 public class ToolSystem extends EntityProcessingSystem{
 	
+	@SuppressWarnings("unchecked")
 	public ToolSystem() {
 		super(Aspect.all(ToolComponent.class));	
-		//this.world = world;
 		
 	}
 
 		
 	protected void process(Entity entity) {
-		if(this.world.getMapper(MagazineComponent.class).has(entity)){
-			if(this.world.getMapper(MagazineComponent.class).get(entity).isEmpty()){
-				this.world.getMapper(ToolComponent.class).get(entity).setUsePrimary(false);
-			}
-		}
+		
 	}
 	
 	
@@ -39,27 +34,32 @@ public class ToolSystem extends EntityProcessingSystem{
 	 */
 	public void usePrimary(Entity entity){
 		Entity tool = null;
-		if(this.world.getMapper(InventoryComponent.class).has(entity)){
-			tool = this.world.getMapper(InventoryComponent.class).get(entity).getEquiped();
+		
+		InventoryComponent ic = entity.getComponent(InventoryComponent.class);
+		
+		if(ic != null){
+			tool = ic.getEquiped();
 		}
 		
 		if(tool != null){
-			if(this.world.getMapper(ToolComponent.class).get(tool).canUsePrimary()){
-				this.world.getMapper(ToolComponent.class).get(tool).setUsingPrimary(true);
-				if(this.world.getMapper(BalisticComponent.class).has(tool)){
-					if(!this.world.getMapper(BalisticComponent.class).get(tool).isWaitingForCoolDown()){
-						if(this.world.getMapper(MagazineComponent.class).has(tool)){
-							this.world.getMapper(MagazineComponent.class).get(tool).shoot();
+			ToolComponent tc = tool.getComponent(ToolComponent.class);
+			BalisticComponent bc = tool.getComponent(BalisticComponent.class);
+			MagazineComponent mc = tool.getComponent(MagazineComponent.class);
+			TransformComponent trc = entity.getComponent(TransformComponent.class);
+			
+			if(tc.canUsePrimary()){
+				tc.setUsingPrimary(true);
+				if(bc != null){
+					if(!bc.isWaitingForCoolDown()){
+						if(mc != null){
+							mc.shoot();
 						}
 						
 						world.getSystem(BalisticSystem.class).shoot(tool, 
-								this.world.getMapper(TransformComponent.class).get(entity).getPos().cpy()
-									.add(this.world.getMapper(TransformComponent.class).get(entity).getDimensions().cpy().scl(0.5f)), 
-								this.world.getMapper(TransformComponent.class).get(entity).getAngle()						
-								);		
+								trc.getPos().cpy().add(trc.getDimensions().cpy().scl(0.5f)), 
+								trc.getAngle());		
 						
-						
-						//engine.getSystem(BalisticSystem.class).shootWait(tool);
+						world.getSystem(BalisticSystem.class).shootWait(tool);
 					}
 				}
 			}

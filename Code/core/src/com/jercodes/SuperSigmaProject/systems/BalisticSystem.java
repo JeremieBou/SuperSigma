@@ -2,32 +2,27 @@ package com.jercodes.SuperSigmaProject.systems;
 
 import com.artemis.Aspect;
 import com.artemis.Entity;
-import com.artemis.systems.EntityProcessingSystem;
+import com.artemis.EntitySystem;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Timer;
 import com.jercodes.SuperSigmaProject.EntityFactory;
 import com.jercodes.SuperSigmaProject.components.tools.BalisticComponent;
 import com.jercodes.SuperSigmaProject.components.tools.ProjectileComponent;
 
-public class BalisticSystem extends EntityProcessingSystem {
+public class BalisticSystem extends EntitySystem {
 	private int totalShots = 0;
 	private Timer rateOfFireTimer;
 	private final EntityFactory entityFactory;
 	
+	@SuppressWarnings("unchecked")
 	public BalisticSystem(EntityFactory entityFactory) {
-		super(Aspect.getAspectForAll(BalisticComponent.class));			
+		super(Aspect.all(BalisticComponent.class));			
 		
 		rateOfFireTimer = new Timer();
 		this.entityFactory = entityFactory;
 	}
 
 	
-	protected void processEntity(Entity entity, float deltaTime) {
-		if(this.world.getMapper(BalisticComponent.class).get(entity).isWaitingForCoolDown()){
-			
-		}
-		
-	}
 	
 	public void shoot(Entity tool, Vector2 pos, float angle){
 		Entity weapon = tool;
@@ -40,7 +35,7 @@ public class BalisticSystem extends EntityProcessingSystem {
 		shootWait(weapon);
 	}
 	
-	private void shootWait(Entity tool){
+	protected void shootWait(Entity tool){
 		float timeToWait = 1/this.world.getMapper(BalisticComponent.class).get(tool).getRateOfFire();
 
 		this.world.getMapper(BalisticComponent.class).get(tool).setWaitingForCoolDown(true);
@@ -50,8 +45,8 @@ public class BalisticSystem extends EntityProcessingSystem {
 		rateOfFireTimer.scheduleTask(swt, timeToWait);
 	}
 
-
-	protected void process(Entity e) {
+	protected void processSystem() {
+		// TODO Auto-generated method stub
 		
 	}	
 }

@@ -10,8 +10,9 @@ import com.jercodes.SuperSigmaProject.components.TransformComponent;
 public class CameraSystem extends EntityProcessingSystem{
 	private SpriteBatch batch;
 		
+	@SuppressWarnings("unchecked")
 	public CameraSystem(SpriteBatch batch) {
-		super(Aspect.getAspectForAll(CameraComponent.class));		
+		super(Aspect.all(CameraComponent.class));		
 		
 		this.batch = batch;		
 	}
